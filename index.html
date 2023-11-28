@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input,
+        button {
+            font-size: 18px;
+            margin: 5px;
+            padding: 10px;
+            background-color: beige;
+        }
+    </style>
+        <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <style>
+        body {
+            background-color: bisque;
+        }
+    </style>
+    <!-- Input field to display and enter calculations -->
+    <input type="text" id="result" readonly>
+
+    <!-- Calculator buttons -->
+    <br>
+    <button class="custom" class="custom_hover" onclick="appendToResult('1')">1</button>
+    <button onclick="appendToResult('2')">2</button>
+    <button onclick="appendToResult('3')">3</button>
+    <button onclick="operate('+')">+</button>
+    <br>
+    <button onclick="appendToResult('4')">4</button>
+    <button onclick="appendToResult('5')">5</button>
+    <button onclick="appendToResult('6')">6</button>
+    <button onclick="operate('-')">-</button>
+    <br>
+    <button onclick="appendToResult('7')">7</button>
+    <button onclick="appendToResult('8')">8</button>
+    <button onclick="appendToResult('9')">9</button>
+    <button onclick="operate('*')">*</button>
+    <br>
+    <button onclick="appendToResult('0')">0</button>
+    <button onclick="appendToResult('.')">.</button>
+    <button onclick="clearResult()">C</button>
+    <button onclick="operate('/')">/</button>
+    <br>
+    <button onclick="calculateResult()">=</button>
+    <!-- JavaScript code -->
+    <script>
+        // Function to append a value to the result input
+        function appendToResult(value) {
+            document.getElementById('result').value += value;
+        }
+
+        // Function to perform basic operations (+, -, *, /)
+        function operate(operator) {
+            document.getElementById('result').value += operator;
+        }
+
+        // Function to clear the result input
+        function clearResult() {
+            document.getElementById('result').value = '';
+        }
+
+        // Function to calculate the result
+        function calculateResult() {
+            var resultField = document.getElementById('result');
+            try {
+                resultField.value = eval(resultField.value);
+            } catch (error) {
+                resultField.value = 'Error';
+            }
+        }
+    </script>
+
+    
+
+    <input type="text" id="nameInput" placeholder="type your name">
+
+    <button onclick="pronounce()">Call Function</button>
+
+    <script>
+        function pronounce() {
+
+             var1 = document.getElementById('nameInput').value;
+
+            console.log('hello ' + var1);
+        }
+    </script>
+</body>
+
+</html>
